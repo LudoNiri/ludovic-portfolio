@@ -148,7 +148,7 @@ body{
 .st-main{
   display:block;
   font-family:'House of cards W03 Bold', sans-serif;
-  font-size:clamp(1.5em, 7vw, 4em);
+  font-size:clamp(2.5em, 7vw, 4em);
   letter-spacing:1px;
   white-space:nowrap;
 }
@@ -156,7 +156,7 @@ body{
   display:block;
   font-family:'Ananda', cursive;
   font-weight:400;
-  font-size:clamp(0.94em, 4.375vw, 2.5em);
+  font-size:clamp(1em, 4.375vw, 2.5em);
   color:#f2f2f5;
   margin-top:-0.8em;
   margin-left:2em;
