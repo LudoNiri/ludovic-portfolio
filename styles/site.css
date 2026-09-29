@@ -248,8 +248,8 @@ a.pill:hover{
 .project-nav-name{ display:inline-block; }
 
 @media (max-width:560px){
-  .project-nav{ flex-direction:column; align-items:stretch; }
-  .project-nav-link--next{ margin-left:0; }
+  .project-nav-thumb{ display:none; }
+  .project-nav-link{ gap:0; max-width:48%; }
 }
 
 /* --- Footer --- */
