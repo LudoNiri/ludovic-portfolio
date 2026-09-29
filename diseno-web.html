@@ -146,8 +146,11 @@
   }
 
   @media (max-width:700px){
-    .project-gallery--layered{ grid-template-columns:1fr; }
+    .project-gallery--layered{ grid-template-columns:1fr; max-width:300px; }
     .gallery-hero{ margin-bottom:60px; }
+    .gallery-hero .gallery-tab{ left:10%; }
+    .gallery-side{ align-items:center; }
+    .gallery-side img{ width:60%; }
   }
 
   @media (max-width:600px){
@@ -287,12 +290,12 @@
       </p>
       <div class="project-gallery--layered">
         <div class="gallery-hero">
-          <img class="gallery-main reveal-img" style="--i:0" src="images/Aurelie/Atelier_ecran1.png" alt="L'atelier d'Or'Elie — aperçu écran">
+          <img class="gallery-main reveal-img" style="--i:0" src="images/Aurelie/atelier_ecran1.png" alt="L'atelier d'Or'Elie — aperçu écran">
           <img class="gallery-phone reveal-img" style="--i:1" src="images/Aurelie/Atelier_telephone.png" alt="L'atelier d'Or'Elie — aperçu téléphone">
         </div>
         <div class="gallery-side">
-          <img class="reveal-img" style="--i:2" src="images/Aurelie/Atelier_ecran2.png" alt="L'atelier d'Or'Elie — aperçu écran 2">
-          <img class="reveal-img" style="--i:3" src="images/Aurelie/Atelier_ecran3.png" alt="L'atelier d'Or'Elie — aperçu écran 3">
+          <img class="reveal-img" style="--i:2" src="images/Aurelie/atelier_ecran2.png" alt="L'atelier d'Or'Elie — aperçu écran 2">
+          <img class="reveal-img" style="--i:3" src="images/Aurelie/atelier_ecran3.png" alt="L'atelier d'Or'Elie — aperçu écran 3">
         </div>
       </div>
     </article>
