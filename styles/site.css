@@ -312,6 +312,11 @@ a.pill:hover{
   .nav-menu a{ display:block; padding:14px 4px; }
 
   .nav-burger{ display:flex; }
+
+  .st-sub{
+    font-size:clamp(1.5em, calc(4.375vw + 0.5em), 3em);
+    margin-top:-0.6em;
+  }
 }
 
 /* --- Back to top --- */
