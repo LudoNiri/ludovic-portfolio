@@ -281,6 +281,10 @@ a.pill:hover{
     grid-template-columns:1fr auto 1fr;
     align-items:center;
     row-gap:12px;
+    margin-left:-20px;
+    margin-right:-20px;
+    width:calc(100% + 40px);
+    padding:15px 20px;
   }
   .nav-logo{ grid-column:2; grid-row:1; }
   .nav-burger{ grid-column:3; grid-row:1; justify-self:end; }
