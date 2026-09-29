@@ -23,5 +23,27 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  function initBackToTop() {
+    var btn = document.createElement('button');
+    btn.className = 'back-to-top';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Retour en haut de page');
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 5l-7 7h4v7h6v-7h4z"/></svg>';
+    document.body.appendChild(btn);
+
+    function toggle() {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+    }
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    init();
+    initBackToTop();
+  });
 })();
