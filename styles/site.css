@@ -156,10 +156,11 @@ body{
   display:block;
   font-family:'Ananda', cursive;
   font-weight:400;
-  font-size:2.5em;
+  font-size:clamp(0.94em, 4.375vw, 2.5em);
   color:#f2f2f5;
   margin-top:-0.8em;
   margin-left:2em;
+  white-space:nowrap;
 }
 .title-rule{
   height:1px;
@@ -279,9 +280,17 @@ a.pill:hover{
     display:grid;
     grid-template-columns:1fr auto 1fr;
     align-items:center;
+    row-gap:12px;
   }
-  .nav-logo{ grid-column:2; }
-  .nav-social{ grid-column:3; }
+  .nav-logo{ grid-column:2; grid-row:1; }
+  .nav-burger{ grid-column:3; grid-row:1; justify-self:end; }
+
+  .nav-social{
+    grid-column:1 / -1;
+    grid-row:2;
+    justify-content:center;
+  }
+  .nav-social .social-icon{ display:none; }
 
   .nav-menu{
     display:none;
@@ -302,6 +311,5 @@ a.pill:hover{
   .nav-menu li{ list-style:none; }
   .nav-menu a{ display:block; padding:14px 4px; }
 
-  .nav-social .social-icon{ display:none; }
   .nav-burger{ display:flex; }
 }
