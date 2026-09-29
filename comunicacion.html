@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comunicación — Ludovic Randrianantoandro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/8be6aef030888a4592f8fe1cd55ce703?family=House+of+cards+W03+Bold" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@100;300;400;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  html{ scroll-behavior:smooth; }
+
+  .page-intro{
+    max-width:600px;
+    margin:26px auto 0;
+    text-align:center;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--text-body);
+  }
+
+  .comm-section{
+    margin-top:80px;
+  }
+  .comm-section:first-of-type{
+    margin-top:50px;
+  }
+
+  .flyer-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    max-width:1200px;
+    margin:28px auto 0;
+  }
+  .flyer-grid img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:8px;
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.6);
+  }
+
+  .logofolio-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:16px;
+    max-width:1100px;
+    margin:28px auto 0;
+  }
+  .logofolio-grid .logo-card{
+    aspect-ratio:1;
+    background:var(--card-bg);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+  }
+  .logofolio-grid img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+  }
+
+  @media (max-width:700px){
+    .flyer-grid{ grid-template-columns:1fr; }
+    .logofolio-grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="identidad-visual.html" data-i18n="nav.identidad">Identidad visual</a></li>
+      <li><a href="diseno-web.html" data-i18n="nav.diseno">Diseño web</a></li>
+      <li><a href="comunicacion.html" class="is-active" data-i18n="nav.comunicacion">Comunicación</a></li>
+    </ul>
+
+    <div class="nav-logo">
+      <a href="accueil.html">
+        <img src="images/logo_LR.png" alt="Retour à l'accueil" data-i18n-attr="alt:nav.logoAlt">
+      </a>
+    </div>
+
+    <div class="nav-social">
+      <div class="lang-switch">
+        <button type="button" data-lang="fr" onclick="i18n.setLang('fr')">FR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+      </div>
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text" data-i18n="nav.comunicacion">COMUNICACIÓN</span>
+      <span class="st-sub" data-i18n="nav.projet">Proyectos</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <p class="page-intro" data-i18n="comunicacion.intro">
+      Supports print et digitaux qui portent un message clair, du concept à la mise en page finale.
+    </p>
+
+    <div class="comm-section">
+      <span class="pill" data-i18n="comunicacion.flyersLabel">Flyers</span>
+      <div class="flyer-grid">
+        <img src="images/Flyers/flyer_esencia.png" alt="Flyer 1">
+        <img src="images/Flyers/flyer_lunaria.png" alt="Flyer 2">
+        <img src="images/Flyers/flyer_vortex.png" alt="Flyer 3">
+      </div>
+    </div>
+
+    <div class="comm-section">
+      <span class="pill" data-i18n="comunicacion.logofolioLabel">Logofolio</span>
+      <div class="logofolio-grid">
+        <div class="logo-card"><img src="images/Logofolio/logo_comptoir.png" alt="Logo 1"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_velnea.png" alt="Logo 2"></div>
+        <div class="logo-card"><img src="images/Logofolio/Logo_Morgane.png" alt="Logo 3"></div>
+        <div class="logo-card"><img src="images/Logofolio/Logo_coaching.png" alt="Logo 4"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_pears.png" alt="Logo 5"></div>
+      </div>
+
+            <div class="logofolio-grid">
+        <div class="logo-card"><img src="images/Logofolio/logo_dragones.png" alt="Logo 1"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_SDC.png" alt="Logo 2"></div>
+        <div class="logo-card"><img src="images/Logofolio/Logo_lucile.png" alt="Logo 3"></div>
+        <div class="logo-card"><img src="images/Logofolio/Logo_vortex.png" alt="Logo 4"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_evolancia.png" alt="Logo 5"></div>
+      </div>
+
+            <div class="logofolio-grid">
+        <div class="logo-card"><img src="images/Logofolio/logo_sensation.png" alt="Logo 1"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_luxury.png" alt="Logo 2"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_lunaria.png" alt="Logo 3"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_esencia.png" alt="Logo 4"></div>
+        <div class="logo-card"><img src="images/Logofolio/logo_jardin.png" alt="Logo 5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 Ludovic Randrianantoandro — Tous droits réservés.</p>
+  </footer>
+
+</div>
+
+<script src="scripts/i18n-common.js"></script>
+<script>
+  window.I18N_DICT = Object.assign({}, window.I18N_COMMON, {
+    'comunicacion.intro': {
+      fr: "Supports print et digitaux qui portent un message clair, du concept à la mise en page finale.",
+      en: "Print and digital materials that carry a clear message, from concept to final layout.",
+      es: "Soportes impresos y digitales que transmiten un mensaje claro, desde el concepto hasta la maquetación final."
+    },
+    'comunicacion.flyersLabel': { fr: "Flyers", en: "Flyers", es: "Flyers" },
+    'comunicacion.logofolioLabel': { fr: "Logofolio", en: "Logofolio", es: "Logofolio" }
+  });
+</script>
+<script src="scripts/i18n.js"></script>
+
+</body>
+</html>

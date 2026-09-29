@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ludovic Randrianantoandro — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/8be6aef030888a4592f8fe1cd55ce703?family=House+of+cards+W03+Bold" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@100;300;400;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  html{ scroll-behavior:smooth; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background:var(--bg);
+    color:var(--text-body);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* --- Hero --- */
+  .home-hero{
+    position:relative;
+    height:100svh;
+    min-height:560px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    overflow:hidden;
+  }
+  .home-hero-media{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .home-hero-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top 20%;
+    filter:grayscale(.15);
+  }
+  .home-hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(0deg, var(--bg) 0%, rgba(18,16,18,.55) 38%, rgba(18,16,18,.15) 60%, rgba(18,16,18,.45) 100%);
+  }
+
+  .home-hero-content{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding:0 24px 56px;
+  }
+  .home-name{
+    display:block;
+    margin:0;
+    font-family:'House of cards W03 Bold', sans-serif;
+    font-size:clamp(2.6em, 7vw, 5em);
+    letter-spacing:1px;
+    color: var(--gold-2);
+  }
+  .home-role{
+    display:block;
+    font-family:'Ananda', cursive;
+    font-weight:400;
+    font-size:clamp(1.3em, 3vw, 2.2em);
+    color:var(--white);
+    margin-top:-0.5em;
+    margin-left:1.6em;
+  }
+  .home-since{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin-top:18px;
+    font-family:'Montserrat', sans-serif;
+    font-weight:300;
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--gold-1);
+  }
+  .home-since::before,
+  .home-since::after{
+    content:"";
+    width:28px;
+    height:1px;
+    background:var(--gold-2);
+  }
+
+  .home-hero .lang-switch{
+    position:absolute;
+    top:24px;
+    right:24px;
+    z-index:2;
+  }
+
+  .scroll-cue{
+    position:relative;
+    z-index:1;
+    margin-bottom:36px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid #4a4850;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--white);
+    text-decoration:none;
+    animation:scroll-bounce 2.2s ease-in-out infinite;
+    transition:.2s;
+  }
+  .scroll-cue:hover{
+    background:var(--gold-2);
+    border-color:var(--gold-2);
+    color:var(--navy);
+  }
+  .scroll-cue svg{ width:16px; height:16px; fill:currentColor; }
+  @keyframes scroll-bounce{
+    0%, 100%{ transform:translateY(0); }
+    50%{ transform:translateY(8px); }
+  }
+
+  /* --- Categories (quinconce) --- */
+  .categories{
+    position:relative;
+    overflow:hidden;
+    margin:0 50px;
+    padding:110px 0;
+  }
+  .categories-mark{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+    font-family:'House of cards W03 Bold', sans-serif;
+    font-size:clamp(280px, 38vw, 620px);
+    line-height:1;
+    opacity:.06;
+    white-space:nowrap;
+    pointer-events:none;
+    user-select:none;
+  }
+  .category-row{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:baseline;
+    gap:40px;
+    max-width:760px;
+    text-decoration:none;
+    color:inherit;
+  }
+  .category-row + .category-row{ margin-top:90px; }
+  .category-row--r{
+    margin-left:0;
+    margin-right:auto;
+  }
+  .category-row--l{
+    margin-left:auto;
+    margin-right:0;
+    flex-direction:row-reverse;
+    text-align:right;
+  }
+
+  .category-index{
+    flex-shrink:0;
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:4.5em;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold-2);
+    opacity:.55;
+  }
+
+  .category-title{
+    display:block;
+    font-family:'House of cards W03 Bold', sans-serif;
+    font-size:2em;
+    letter-spacing:.5px;
+    /* color: var(--gold-2); */
+  }
+  .category-desc{
+    display:block;
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.8;
+    color:var(--text-body);
+    max-width:440px;
+  }
+  .category-row--l .category-desc{ margin-left:auto; }
+
+  .category-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+    font-family:'Montserrat', sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold-1);
+    transition:gap .2s;
+  }
+  .category-row:hover .category-cta{ gap:14px; }
+
+  @media (max-width:700px){
+    .categories{ margin:0 24px; padding:80px 0; }
+    .category-row,
+    .category-row--l{
+      flex-direction:column;
+      align-items:flex-start;
+      text-align:left;
+      margin-left:0;
+      margin-right:0;
+      max-width:100%;
+    }
+    .category-row--l .category-desc{ margin-left:0; }
+    .category-index{ font-size:3em; }
+    .home-role{ margin-left:.4em; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="home-hero">
+    <div class="lang-switch">
+      <button type="button" data-lang="fr" onclick="i18n.setLang('fr')">FR</button>
+      <span class="sep">/</span>
+      <button type="button" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+      <span class="sep">/</span>
+      <button type="button" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+    </div>
+    <div class="home-hero-media">
+      <img src="images/photo_perso.jpg" alt="Portrait de Ludovic Randrianantoandro" data-i18n-attr="alt:home.photoAlt">
+    </div>
+    <div class="home-hero-content">
+      <h1 class="home-name">Ludovic Randrianantoandro</h1>
+      <p class="home-role" data-i18n="home.role">Designer graphique & web</p>
+      <p class="home-since" data-i18n="home.since">Depuis 2015</p>
+    </div>
+    <a class="scroll-cue" href="#categories" aria-label="Découvrir mon travail" data-i18n-attr="aria-label:home.discover">
+      <svg viewBox="0 0 24 24"><path d="M12 16.5 4 8l1.4-1.4L12 13.7l6.6-7.1L20 8z"/></svg>
+    </a>
+  </header>
+
+  <section id="categories" class="categories">
+    <span class="categories-mark gold-text" aria-hidden="true">LR</span>
+
+    <a class="category-row category-row--r" href="identidad-visual.html">
+      <span class="category-index">01</span>
+      <span class="category-body">
+        <span class="category-title gold-menu" data-i18n="nav.identidad">Identidad visual</span>
+        <span class="category-desc" data-i18n="home.cat1.desc">Logos, chartes graphiques et systèmes de marque pensés pour rester cohérents sur tous les supports.</span>
+        <span class="category-cta" data-i18n="home.cta">Voir le menu complet →</span>
+      </span>
+    </a>
+
+    <a class="category-row category-row--l" href="diseno-web.html">
+      <span class="category-index">02</span>
+      <span class="category-body">
+        <span class="category-title gold-menu" data-i18n="nav.diseno">Diseño web</span>
+        <span class="category-desc" data-i18n="home.cat2.desc">Sites et interfaces conçus pour être clairs, rapides et agréables à utiliser.</span>
+        <span class="category-cta" data-i18n="home.cta">Voir le menu complet →</span>
+      </span>
+    </a>
+
+    <a class="category-row category-row--r" href="comunicacion.html">
+      <span class="category-index">03</span>
+      <span class="category-body">
+        <span class="category-title gold-menu" data-i18n="nav.comunicacion">Comunicación</span>
+        <span class="category-desc" data-i18n="home.cat3.desc">Supports print et digitaux qui portent un message clair, du concept à la mise en page finale.</span>
+        <span class="category-cta" data-i18n="home.cta">Voir le menu complet →</span>
+      </span>
+    </a>
+  </section>
+
+<script src="scripts/i18n-common.js"></script>
+<script>
+  window.I18N_DICT = Object.assign({}, window.I18N_COMMON, {
+    'home.photoAlt': {
+      fr: 'Portrait de Ludovic Randrianantoandro',
+      en: 'Portrait of Ludovic Randrianantoandro',
+      es: 'Retrato de Ludovic Randrianantoandro'
+    },
+    'home.role': { fr: 'Designer graphique & web', en: 'Graphic & web designer', es: 'Diseñador gráfico & web' },
+    'home.since': { fr: 'Depuis 2015', en: 'Since 2015', es: 'Desde 2015' },
+    'home.discover': { fr: 'Découvrir mon travail', en: 'Discover my work', es: 'Descubrir mi trabajo' },
+    'home.cta': { fr: 'Voir le menu complet →', en: 'See full menu →', es: 'Ver el menú completo →' },
+    'home.cat1.desc': {
+      fr: 'Logos, chartes graphiques et systèmes de marque pensés pour rester cohérents sur tous les supports.',
+      en: 'Logos, brand guidelines and identity systems designed to stay consistent across every medium.',
+      es: 'Logos, manuales de marca y sistemas de identidad pensados para mantenerse coherentes en todos los soportes.'
+    },
+    'home.cat2.desc': {
+      fr: 'Sites et interfaces conçus pour être clairs, rapides et agréables à utiliser.',
+      en: 'Websites and interfaces designed to be clear, fast and pleasant to use.',
+      es: 'Sitios web e interfaces diseñados para ser claros, rápidos y agradables de usar.'
+    },
+    'home.cat3.desc': {
+      fr: 'Supports print et digitaux qui portent un message clair, du concept à la mise en page finale.',
+      en: 'Print and digital materials that carry a clear message, from concept to final layout.',
+      es: 'Soportes impresos y digitales que transmiten un mensaje claro, desde el concepto hasta la maquetación final.'
+    }
+  });
+</script>
+<script src="scripts/i18n.js"></script>
+
+</body>
+</html>

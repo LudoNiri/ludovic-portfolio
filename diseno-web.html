@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diseño web — Ludovic Randrianantoandro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/8be6aef030888a4592f8fe1cd55ce703?family=House+of+cards+W03+Bold" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@100;300;400;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  html{ scroll-behavior:smooth; }
+
+  .page-intro{
+    max-width:600px;
+    margin:26px auto 0;
+    text-align:center;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--text-body);
+  }
+
+  .project-jump{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:40px;
+  }
+
+  .project-block{
+    scroll-margin-top:100px;
+    margin-top:110px;
+    padding-top:60px;
+    border-top:1px solid #2a282b;
+  }
+  .project-block:first-of-type{
+    border-top:none;
+  }
+  .project-number{
+    display:block;
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:3em;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold-2);
+    opacity:.55;
+  }
+  .project-title{
+    display:block;
+    margin:6px 0 0;
+    font-family:'House of cards W03 Bold', sans-serif;
+    font-size:2.6em;
+    letter-spacing:.5px;
+  }
+  .project-desc{
+    max-width:620px;
+    margin-top:16px;
+    font-size:14px;
+    line-height:1.8;
+    color:var(--text-body);
+  }
+  .project-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:18px;
+    font-family:'Montserrat', sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold-1);
+    text-decoration:none;
+    transition:gap .2s;
+  }
+  .project-link:hover{ gap:14px; }
+
+  .project-gallery{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+    margin-top:36px;
+  }
+  .project-gallery img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:8px;
+    background:var(--card-bg);
+  }
+  .project-gallery img:first-child{
+    grid-column:1 / -1;
+  }
+
+  /* --- Galerie en calques (écran principal + tablette/téléphone superposés + 2 écrans empilés) --- */
+  .project-gallery--layered{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:32px;
+    align-items:start;
+    max-width:820px;
+    margin:36px auto;
+  }
+  .gallery-hero{
+    position:relative;
+  }
+  .gallery-hero img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .gallery-hero .gallery-main{
+    position:relative;
+    z-index:1;
+  }
+  .gallery-hero .gallery-tab{
+    position:absolute;
+    z-index:2;
+    left:-20%;
+    bottom:-9%;
+    width:52%;
+    filter:drop-shadow(0 12px 20px rgba(0,0,0,.5));
+  }
+  .gallery-hero .gallery-phone{
+    position:absolute;
+    z-index:3;
+    left:75%;
+    bottom:-8%;
+    width:17%;
+    filter:drop-shadow(0 12px 20px rgba(0,0,0,.5));
+  }
+  .gallery-side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .gallery-side img{
+    display:block;
+    width:70%;
+    height:auto;
+  }
+
+  @media (max-width:700px){
+    .project-gallery--layered{ grid-template-columns:1fr; }
+    .gallery-hero{ margin-bottom:60px; }
+  }
+
+  @media (max-width:600px){
+    .project-gallery{ grid-template-columns:1fr; }
+  }
+
+  /* --- Apparition au scroll --- */
+  .reveal,
+  .reveal-img{
+    transition-delay:calc(var(--i, 0) * .12s);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateX(-28px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal-img{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible,
+  .reveal-img.is-visible{
+    opacity:1;
+    transform:none;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-img{ transition:none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="identidad-visual.html" data-i18n="nav.identidad">Identidad visual</a></li>
+      <li><a href="diseno-web.html" class="is-active" data-i18n="nav.diseno">Diseño web</a></li>
+      <li><a href="comunicacion.html" data-i18n="nav.comunicacion">Comunicación</a></li>
+    </ul>
+
+    <div class="nav-logo">
+      <a href="accueil.html">
+        <img src="images/logo_LR.png" alt="Retour à l'accueil" data-i18n-attr="alt:nav.logoAlt">
+      </a>
+    </div>
+
+    <div class="nav-social">
+      <div class="lang-switch">
+        <button type="button" data-lang="fr" onclick="i18n.setLang('fr')">FR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+      </div>
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text" data-i18n="nav.diseno">DISEÑO WEB</span>
+      <span class="st-sub" data-i18n="nav.projet">Proyectos</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <p class="page-intro reveal" data-i18n="diseno.intro">
+      Sites et interfaces conçus pour être clairs, rapides et agréables à utiliser.
+      Les 3 projets sont présentés directement ci-dessous.
+    </p>
+
+    <nav class="project-jump">
+      <a class="pill reveal" style="--i:0" href="#projet-1" data-i18n="diseno.jump1">01. Sound Digital Crew</a>
+      <a class="pill reveal" style="--i:1" href="#projet-2" data-i18n="diseno.jump2">02. HD elevation</a>
+      <a class="pill reveal" style="--i:2" href="#projet-3" data-i18n="diseno.jump3">03. L'atelier d'Or'Elie</a>
+    </nav>
+
+    <article class="project-block" id="projet-1">
+      <span class="project-number reveal" style="--i:0">01</span>
+      <h2 class="project-title gold-menu reveal" style="--i:1" data-i18n="diseno.project1.title">Sound Digital crew</h2>
+      <p class="project-desc reveal" style="--i:2" data-i18n="diseno.project1.desc">Le client souhaitait refaire complètement son site
+        qui devenait vieillissant. J'ai construit la maquette du site mais pour des raisons personnelles, le client
+        n'a pas souhaité poursuivre la finalisation de la maquette et la mise à jour de son site.</p>
+      <div class="project-gallery--layered">
+        <div class="gallery-hero">
+          <img class="gallery-main reveal-img" style="--i:0" src="images/Sono Dance Concept/SDC_ecran1.png" alt="Sono Dance Concept — aperçu écran">
+          <img class="gallery-tab reveal-img" style="--i:1" src="images/Sono Dance Concept/SDC_tab.png" alt="Sono Dance Concept — aperçu tablette">
+          <img class="gallery-phone reveal-img" style="--i:2" src="images/Sono Dance Concept/SDC_telephone.png" alt="Sono Dance Concept — aperçu téléphone">
+        </div>
+        <div class="gallery-side">
+          <img class="reveal-img" style="--i:3" src="images/Sono Dance Concept/SDC_ecran2.png" alt="Sono Dance Concept — aperçu écran 2">
+          <img class="reveal-img" style="--i:4" src="images/Sono Dance Concept/SDC_ecran3.png" alt="Sono Dance Concept — aperçu écran 3">
+        </div>
+      </div>
+    </article>
+
+    <article class="project-block" id="projet-2">
+      <span class="project-number reveal" style="--i:0">02</span>
+      <h2 class="project-title gold-menu reveal" style="--i:1" data-i18n="diseno.project2.title">HD elevation</h2>
+      <p class="project-desc reveal" style="--i:2" data-i18n="diseno.project2.desc">Projet fictif pour un entrepreneur dans le domaine du
+        Human design qui souhaitait développer un site one page qui lui permettait d'expliquer l'outil, son utilisation
+        et proposer ces prestations de service en tant que professionnel dans ce domaine.
+      </p>
+      <div class="project-gallery--layered">
+        <div class="gallery-hero">
+          <img class="gallery-main reveal-img" style="--i:0" src="images/HD elevation/HDE_ecran1.png" alt="HD elevation — aperçu écran">
+          <img class="gallery-tab reveal-img" style="--i:1" src="images/HD elevation/HDE_tab.png" alt="HD elevation — aperçu tablette">
+          <img class="gallery-phone reveal-img" style="--i:2" src="images/HD elevation/HDE_telephone.png" alt="HD elevation — aperçu téléphone">
+        </div>
+        <div class="gallery-side">
+          <img class="reveal-img" style="--i:3" src="images/HD elevation/HDE_ecran2.png" alt="HD elevation — aperçu écran 2">
+          <img class="reveal-img" style="--i:4" src="images/HD elevation/HDE_ecran3.png" alt="HD elevation — aperçu écran 3">
+        </div>
+      </div>
+    </article>
+
+    <article class="project-block" id="projet-3">
+      <span class="project-number reveal" style="--i:0">03</span>
+      <h2 class="project-title gold-menu reveal" style="--i:1" data-i18n="diseno.project3.title">L'atelier d'Or'Elie</h2>
+      <p class="project-desc reveal" style="--i:2" data-i18n="diseno.project3.desc">La cliente disposait d'un site internet incomplet
+        et souhaitait le mettre à jour tout en lui donnant une nouvelle dynamique. Professionnelle dans le
+        bien-être et l'esothérisme, elle vend des prestations de services et des produits autour des pierres.
+        Ne pouvant pas gérer toutes les mises à jour de son site et ne passant que par les réseaux, la cliente
+        a depuis quelques années décider de fermer son site.
+      </p>
+      <div class="project-gallery--layered">
+        <div class="gallery-hero">
+          <img class="gallery-main reveal-img" style="--i:0" src="images/Aurelie/Atelier_ecran1.png" alt="L'atelier d'Or'Elie — aperçu écran">
+          <img class="gallery-phone reveal-img" style="--i:1" src="images/Aurelie/Atelier_telephone.png" alt="L'atelier d'Or'Elie — aperçu téléphone">
+        </div>
+        <div class="gallery-side">
+          <img class="reveal-img" style="--i:2" src="images/Aurelie/Atelier_ecran2.png" alt="L'atelier d'Or'Elie — aperçu écran 2">
+          <img class="reveal-img" style="--i:3" src="images/Aurelie/Atelier_ecran3.png" alt="L'atelier d'Or'Elie — aperçu écran 3">
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 Ludovic Randrianantoandro — Tous droits réservés.</p>
+  </footer>
+
+</div>
+
+<script src="scripts/i18n-common.js"></script>
+<script>
+  window.I18N_DICT = Object.assign({}, window.I18N_COMMON, {
+    'diseno.intro': {
+      fr: 'Sites et interfaces conçus pour être clairs, rapides et agréables à utiliser. Les 3 projets sont présentés directement ci-dessous.',
+      en: 'Websites and interfaces designed to be clear, fast and pleasant to use. All 3 projects are presented directly below.',
+      es: 'Sitios web e interfaces diseñados para ser claros, rápidos y agradables de usar. Los 3 proyectos se presentan directamente a continuación.'
+    },
+    'diseno.jump1': { fr: "01.   Sound Digital Crew", en: "01.   Sound Digital Crew", es: "01.   Sound Digital Crew" },
+    'diseno.jump2': { fr: "02.   HD elevation", en: "02.   HD elevation", es: "02.   HD elevation" },
+    'diseno.jump3': { fr: "03.   L'atelier d'Or'Elie", en: "03.  L'atelier d'Or'Elie", es: "03.   L'atelier d'Or'Elie" },
+
+    'diseno.project1.title': { fr: "Sound Digital Crew", en: "Sound Digital Crew", es: "Sound Digital Crew" },
+    'diseno.project1.desc': {
+      fr: "Le client souhaitait refaire complètement son site qui devenait vieillissant. J'ai construit la maquette du site mais pour des raisons personnelles, le client n'a pas souhaité poursuivre la finalisation de la maquette et la mise à jour de son site.",
+      en: "The client wanted to completely redo their website, which was becoming outdated. I built the site mockup, but for personal reasons the client chose not to continue with finalizing the design and updating their site.",
+      es: "El cliente quería rehacer por completo su sitio web, que empezaba a quedar anticuado. Construí la maqueta del sitio, pero por motivos personales el cliente decidió no continuar con la finalización del diseño ni la actualización de su sitio."
+    },
+
+    'diseno.project2.title': { fr: "HD elevation", en: "HD elevation", es: "HD elevation" },
+    'diseno.project2.desc': {
+      fr: "Projet fictif pour un entrepreneur dans le domaine du Human design qui souhaitait développer un site one page qui lui permettait d'expliquer l'outil, son utilisation et proposer ces prestations de service en tant que professionnel dans ce domaine.",
+      en: "Fictional project for an entrepreneur in the Human Design field who wanted a one-page website to explain the tool, its use, and to offer his services as a professional in this field.",
+      es: "Proyecto ficticio para un emprendedor en el campo del Human Design que deseaba desarrollar un sitio de una sola página para explicar la herramienta, su uso, y ofrecer sus servicios como profesional en este ámbito."
+    },
+
+    'diseno.project3.title': { fr: "L'atelier d'Or'Elie", en: "L'atelier d'Or'Elie", es: "L'atelier d'Or'Elie" },
+    'diseno.project3.desc': {
+      fr: "La cliente disposait d'un site internet incomplet et souhaitait le mettre à jour tout en lui donnant une nouvelle dynamique. Professionnelle dans le bien-être et l'esothérisme, elle vend des prestations de services et des produits autour des pierres. Ne pouvant pas gérer toutes les mises à jour de son site et ne passant que par les réseaux, la cliente a depuis quelques années décider de fermer son site.",
+      en: "The client had an incomplete website and wanted to update it while giving it fresh energy. A wellness and esoteric professional, she sells services and products centered around stones. Unable to keep up with all the site updates and relying mainly on social media, the client decided a few years ago to close her site.",
+      es: "La clienta contaba con un sitio web incompleto y quería actualizarlo dándole una nueva dinámica. Profesional del bienestar y el esoterismo, vende servicios y productos en torno a las piedras. Al no poder gestionar todas las actualizaciones de su sitio y depender solo de las redes sociales, la clienta decidió hace unos años cerrar su sitio."
+    }
+  });
+</script>
+<script src="scripts/i18n.js"></script>
+<script src="scripts/reveal.js"></script>
+
+</body>
+</html>

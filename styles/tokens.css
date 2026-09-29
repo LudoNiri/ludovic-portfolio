@@ -1,0 +1,93 @@
+@font-face{
+  font-family:'Ananda';
+  src:url('https://font.ludovic-randrianantoandro.workers.dev/Ananda%20Personal%20Use.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Ananda';
+  src:url('https://font.ludovic-randrianantoandro.workers.dev/Ananda%20Black%20Personal%20Use.ttf') format('truetype');
+  font-weight:900;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Luna';
+  src:url('../fonts/Luna.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+}
+
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-Regular.otf') format('opentype');
+  font-weight:400;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-Medium.otf') format('opentype');
+  font-weight:500;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-SemiBold.otf') format('opentype');
+  font-weight:600;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-Bold.otf') format('opentype');
+  font-weight:700;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-ExtraBold.otf') format('opentype');
+  font-weight:800;
+  font-style:normal;
+}
+@font-face{
+  font-family:'Cinzel';
+  src:url('../fonts/Cinzel-Black.otf') format('opentype');
+  font-weight:900;
+  font-style:normal;
+}
+
+
+:root{
+  --bg:#121012;
+  --card-bg:#2a282b;
+  --card-bg-2:#242226;
+  --navy:#191833;
+  --bronze:#94683c;
+  --green:#172717;
+  --white:#ffffff;
+  --gold-1:#f4d77d;
+  --gold-2:#aa7815;
+  --gold-3:#663b02;
+  --text-body:#b9b6bb;
+
+  /* dégradés réutilisables : une custom property peut stocker un
+     gradient entier, à réutiliser ensuite avec var(--nom) */
+  --gold-gradient-simple: linear-gradient(0deg, var(--gold-3) 0%, var(--gold-2) 55%, var(--gold-1) 100%);
+  --gold-gradient: linear-gradient(180deg, var(--gold-3) 0%, var(--gold-2) 5%, var(--gold-3) 23%, var(--gold-1) 31%, var(--white) 43%, var(--gold-1) 50%, var(--gold-3) 59%, var(--gold-2) 74%, var(--gold-3) 100%);
+  --gold-gradient-h: linear-gradient(90deg, var(--gold-3) 0%, var(--gold-2) 5%, var(--gold-3) 23%, var(--gold-1) 31%, var(--white) 43%, var(--gold-1) 50%, var(--gold-3) 59%, var(--gold-2) 74%, var(--gold-3) 100%);
+  --navy-gradient: linear-gradient(160deg, var(--navy) 0%, #201d42 100%);
+}
+
+*{box-sizing:border-box;}
+
+.gold-menu{
+  background:var(--gold-gradient-simple);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.gold-text{
+  background:var(--gold-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sensation Danse — Charte graphique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/8be6aef030888a4592f8fe1cd55ce703?family=House+of+cards+W03+Bold" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@100;300;400;700;800;900&family=Yellowtail&family=Lato:wght@400;700&family=Bodoni+Moda:wght@400;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  /* --- Hero (image fournie par l'utilisateur) --- */
+  .hero{
+    text-align:center;
+    margin-top:40px;
+  }
+  .hero img{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* --- Brandmark grid (images fournies par l'utilisateur) --- */
+  .grid-brandmark{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    column-gap:100px;
+    row-gap:50px;
+    margin-top:36px;
+  }
+  .card{
+    position:relative;
+    background:var(--card-bg);
+    border-radius:8px;
+    height:150px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .card.first-col{ padding-left:20px; }
+  .side-label{
+    position:absolute;
+    left:8px;
+    top:50%;
+    writing-mode:vertical-rl;
+    transform:rotate(180deg) translateY(50%);
+    transform-origin:left center;
+    font-family:'Montserrat', sans-serif;
+    font-size:8px;
+    letter-spacing:2px;
+    color:var(--white);
+    text-transform:uppercase;
+    z-index:1;
+  }
+  .card img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:24px;
+  }
+
+  /* --- Chromatic (images fournies par l'utilisateur) --- */
+  .grid-chromatic{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    column-gap:0;
+    row-gap:0;
+    max-width:1000px;
+    margin:36px auto 0;
+  }
+  .grid-chromatic img{
+    width:100%;
+    display:block;
+  }
+
+  .palette-desc{
+    text-align:center;
+    font-style:italic;
+    font-size:1em;
+    line-height:1.7;
+    color:var(--white);
+    max-width:900px;
+    margin:34px auto 0;
+  }
+  .palette-desc b{ color:var(--gold-1); font-weight:500; font-style:normal; }
+
+  /* --- Sistema --- */
+  .subsection{ margin-top:38px; }
+  .pill{ margin-bottom:16px; }
+  .sistema-text p{
+    font-size:1em;
+    line-height:1.8;
+    margin:0 0 10px;
+    color: var(--white);
+  }
+  .sistema-text ul{
+    margin:8px 0 0;
+    padding-left:18px;
+    font-size:1em;
+    line-height:1.8;
+    color: var(--white);
+  }
+
+  .ejemplo-label{
+    font-size:1em;
+    letter-spacing:1px;
+    color:var(--white);
+    margin:22px 0 10px;
+  }
+
+  .example-box{
+    background:var(--navy-gradient);
+    border-radius:14px;
+    padding:26px 28px;
+    border:1px solid rgba(255,255,255,0.05);
+  }
+  .ex-title{
+    font-family:'Bodoni Moda', serif;
+    font-weight:800;
+    font-size:2em;
+    margin:0 0 2px;
+    color: #94683c;
+  }
+  .ex-sub{
+    font-family:'Lato', sans-serif;
+    font-weight:400;
+    font-size:1.5em;
+    color:#f2f2f5;
+    margin:0 0 12px;
+  }
+  .ex-body{
+    font-size:1em;
+    line-height:1.8;
+    color:#c9c7cd;
+    margin:0;
+  }
+  .ex-body .hl{ color:var(--gold-1); }
+
+  /* --- Iconografia (image fournie par l'utilisateur) --- */
+  .icon-split-wrap{
+    display:flex;
+    justify-content:center;
+    margin-top:24px;
+  }
+  .icon-split-wrap img{
+    max-width:400px;
+    width:100%;
+    height:auto;
+  }
+
+  /* --- Business card (image fournie par l'utilisateur) --- */
+  .card-mockup-wrap{ 
+    display:flex; 
+    justify-content:center; 
+    max-width: 300px; 
+    margin: 50px auto;
+  }
+  .business-card{
+    width:100%;
+    max-width:480px;
+    height:auto;
+    border-radius:14px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,.8);
+  }
+
+  @media (max-width:620px){
+    .grid-brandmark{ grid-template-columns:repeat(2,1fr); }
+    .grid-chromatic{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="identidad-visual.html" class="is-active" data-i18n="nav.identidad">Identidad visual</a></li>
+      <li><a href="diseno-web.html" data-i18n="nav.diseno">Diseño web</a></li>
+      <li><a href="comunicacion.html" data-i18n="nav.comunicacion">Comunicación</a></li>
+    </ul>
+
+    <div class="nav-logo">
+      <a href="accueil.html">
+        <img src="images/logo_LR.png" alt="Retour à l'accueil" data-i18n-attr="alt:nav.logoAlt">
+      </a>
+    </div>
+
+    <div class="nav-social">
+      <div class="lang-switch">
+        <button type="button" data-lang="fr" onclick="i18n.setLang('fr')">FR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+      </div>
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img src="images/Sensation Danse/sd_hero.png" alt="Sensation Danse — logo, nom de marque et effets de lumière" data-i18n-attr="alt:hero.alt">
+  </header>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text" data-i18n="section.main">CONCEPT CREATIF</span>
+      <span class="st-sub" data-i18n="section.brandmark">Brandmark</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <div class="grid-brandmark">
+      <div class="card first-col">
+        <span class="side-label" data-i18n="brandmark.logoHorizontal">Logo horizontal</span>
+        <img src="images/Sensation Danse/sd_horizontal.png" alt="Logo Sensation Danse — version couleur">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_horizontal_secondaire.png" alt="Logo Sensation Danse — version contour or">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_horizontal_monochrome.png" alt="Logo Sensation Danse — version contour blanc">
+      </div>
+
+      <div class="card first-col">
+        <span class="side-label" data-i18n="brandmark.iconoSuelto">Ilustración suelta</span>
+        <img src="images/Sensation Danse/sd_icone.png" alt="Icône Sensation Danse — version couleur">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_icone_secondaire.png" alt="Icône Sensation Danse — version or">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_icone_monochrome.png" alt="Icône Sensation Danse — version blanc">
+      </div>
+
+      <div class="card first-col">
+        <span class="side-label" data-i18n="brandmark.textoSolo">Texto solo</span>
+        <img src="images/Sensation Danse/sd_texte.png" alt="Texte seul Sensation Danse — version couleur">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_texte_secondaire.png" alt="Texte seul Sensation Danse — version or">
+      </div>
+      <div class="card">
+        <img src="images/Sensation Danse/sd_texte_monochrome.png" alt="Texte seul Sensation Danse — version blanc">
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text" data-i18n="section.main">CONCEPT CREATIF</span>
+      <span class="st-sub" data-i18n="section.cromatica">Palette Chromatique</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <div class="grid-chromatic">
+      <img src="images/Sensation Danse/sd_palette1.png" alt="Nuancier — couleur 1">
+      <img src="images/Sensation Danse/sd_palette2.png" alt="Nuancier — couleur 2">
+      <img src="images/Sensation Danse/sd_palette3.png" alt="Nuancier — couleur 3">
+      <img src="images/Sensation Danse/sd_palette4.png" alt="Nuancier — couleur 4">
+    </div>
+
+    <p class="palette-desc" data-i18n-html="cromatica.desc">
+      La palette réunit l'intensité d'un noir profond (`#161716`), l'éclat pur d'un blanc minimaliste 
+      (`#FFFFFF`), la chaleur charnelle d'un bronze terreux (`#94693B`) et le mystère enveloppant 
+      d'un vert forêt (`#1F3D2B`), dessinant une atmosphère feutrée, organique et profondément élégante.
+    </p>
+  </section>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text" data-i18n="section.main">CONCEPT CREATIF</span>
+      <span class="st-sub" data-i18n="section.sistema">Système graphique</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <div class="subsection">
+      <span class="pill" data-i18n="section.typographie">Typographie</span>
+      <div class="sistema-text">
+        <p data-i18n="sistema.p1">Pour le logotype, "Sensation Danse" utilise une typographie entièrement personnalisée.
+          Tout a été dessiné et pensé pour apporter de la cohérence au logo.
+        </p>
+        <p data-i18n="sistema.p2">Afin de garantir la cohérence de tous les supports de communication, 
+          l'identité visuelle de Sensation danse repose sur les typographies suivantes :</p>
+        <ul>
+          <li data-i18n="sistema.titulos">Titres : Bodoni Moda (Extra-Bold)</li>
+          <li data-i18n="sistema.subtitulos">Sous-titre : Lato (Regular)</li>
+          <li data-i18n="sistema.texto">Texte : Inter (Regular)</li>
+        </ul>
+      </div>
+
+      <p class="ejemplo-label" data-i18n="sistema.ejemplo">Ejemplo :</p>
+      <div class="example-box">
+        <p class="ex-title">Bodoni Moda extra-Bold</p>
+        <p class="ex-sub">Lato Regular</p>
+        <p class="ex-body">
+          Lorem ipsum dolor sit amet, <span class="hl">consectetur</span> adipiscing elit.
+          Cras rhoncus urna ex, vitae accumsan dolor mattis sed. Nunc vel tortor
+          id ante feugiat rhoncus. Curabitur facilisis lacus velit, a pulvinar massa laoreet non.
+          Phasellus pretium magna lacus, <span class="hl">non viverra</span> risus malesuada nec.
+          Phasellus sed orci dictum felis maximus gravida. Sed tincidunt tellus lectus, nec
+          vulputate nisi rhoncus sed. Nullam ut libero ullamcorper nunc sagittis eleifend
+          sollicitudin nec ligula. Morbi porta dignissim facilisis.
+        </p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <span class="pill">Branding</span>
+      <div class="icon-split-wrap">
+        <img src="images/Sensation Danse/Sd_iconographie_tshirt.png" alt="Iconographie Sensation Danse">
+      </div>
+    </div>
+  </section>
+
+  <section class="block card-mockup-wrap">
+    <img class="business-card" src="images/Sensation Danse/Sd_iconographie_cartevisite.png" alt="Iconographie Sensation Danse — carte de visite">
+  </section>
+
+  <nav class="project-nav">
+    <a class="project-nav-link project-nav-link--prev" href="lunaria-timepiece.html">
+      <span class="project-nav-text">
+        <span class="project-nav-label" data-i18n="projectnav.prev">Projet précédent</span>
+        <span class="project-nav-name">← Lunaria Timepiece</span>
+      </span>
+      <span class="project-nav-thumb">
+        <img src="images/Lunaria/hero_lunaria.png" alt="Lunaria Timepiece">
+      </span>
+    </a>
+
+    <a class="project-nav-link project-nav-link--next" href="jardin-hermes.html">
+      <span class="project-nav-thumb">
+        <img src="images/Jardin d'Hermes/JH_hero.png" alt="Jardin d'Hermès">
+      </span>
+      <span class="project-nav-text">
+        <span class="project-nav-label" data-i18n="projectnav.next">Projet suivant</span>
+        <span class="project-nav-name">Jardin d'Hermès →</span>
+      </span>
+    </a>
+  </nav>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 Ludovic Randrianantoandro — Tous droits réservés.</p>
+  </footer>
+
+</div>
+
+<script src="scripts/i18n-common.js"></script>
+<script>
+  window.I18N_DICT = Object.assign({}, window.I18N_COMMON, {
+    'hero.alt': {
+      fr: 'Sensation Danse — logo, nom de marque et effets de lumière',
+      en: 'Sensation Danse — logo, wordmark and light effects',
+      es: 'Sensation Danse — logo, naming y efectos de luz'
+    },
+    'brandmark.logoHorizontal': { fr: 'Logo horizontal', en: 'Horizontal logo', es: 'Logo horizontal' },
+    'brandmark.iconoSuelto': { fr: 'Illustration seule', en: 'Standalone icon', es: 'Ilustración suelta' },
+    'brandmark.textoSolo': { fr: 'Texte seul', en: 'Text only', es: 'Texto solo' },
+    'cromatica.desc': {
+      fr: "La palette réunit l'intensité d'un noir profond (`#161716`), l'éclat pur d'un blanc minimaliste (`#FFFFFF`), la chaleur charnelle d'un bronze terreux (`#94693B`) et le mystère enveloppant d'un vert forêt (`#1F3D2B`), dessinant une atmosphère feutrée, organique et profondément élégante.",
+      en: "The palette brings together the intensity of a deep black (`#161716`), the pure brilliance of a minimalist white (`#FFFFFF`), the fleshy warmth of an earthy bronze (`#94693B`) and the enveloping mystery of a forest green (`#1F3D2B`), shaping an atmosphere that is hushed, organic and deeply elegant.",
+      es: "La paleta reúne la intensidad de un negro profundo (`#161716`), el brillo puro de un blanco minimalista (`#FFFFFF`), la calidez carnal de un bronce terroso (`#94693B`) y el misterio envolvente de un verde bosque (`#1F3D2B`), dibujando una atmósfera aterciopelada, orgánica y profundamente elegante."
+    },
+    'sistema.p1': {
+      fr: 'Pour le logotype, « Sensation Danse » utilise une typographie entièrement personnalisée. Tout à été dessiné et pensé pour apporter de la cohérence au logo.',
+      en: 'For the logotype, "Sensation Danse" uses an entirely custom typeface. Everything was drawn and designed to bring consistency to the logo.',
+      es: 'Para el logotipo, «Sensation Danse» utiliza una tipografía completamente personalizada. Todo fue diseñado y pensado para aportar coherencia al logo.'
+    },
+    'sistema.p2': {
+      fr: "Afin de garantir la cohérence de tous les supports de communication, l'identité visuelle de Sensation danse repose sur les typographies suivantes :",
+      en: "To ensure consistency across all communication materials, Sensation Danse's visual identity relies on the following typefaces:",
+      es: 'Con el objetivo de garantizar la coherencia en todos los soportes de comunicación, la identidad visual de Sensation Danse se apoya en las siguientes tipografías:'
+    },
+    'sistema.titulos': { fr: 'Titres : Bodoni Moda (Extra-Bold)', en: 'Titles: Bodoni Moda (Extra-Bold)', es: 'Títulos: Bodoni Moda (Extra-Bold)' },
+    'sistema.subtitulos': { fr: 'Sous-titre : Lato (Regular)', en: 'Subtitle: Lato (Regular)', es: 'Subtítulo: Lato (Regular)' },
+    'sistema.texto': { fr: 'Texte : Inter (Regular)', en: 'Text: Inter (Regular)', es: 'Texto: Inter (Regular)' },
+  });
+</script>
+<script src="scripts/i18n.js"></script>
+
+</body>
+</html>

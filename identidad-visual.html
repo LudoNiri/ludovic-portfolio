@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Identidad visual — Ludovic Randrianantoandro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://db.onlinewebfonts.com/c/8be6aef030888a4592f8fe1cd55ce703?family=House+of+cards+W03+Bold" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@100;300;400;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<style>
+  .page-intro{
+    max-width:600px;
+    margin:26px auto 0;
+    text-align:center;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--text-body);
+  }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:50px 40px;
+    margin-top:60px;
+  }
+  .project-card{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+  }
+  .project-card-media{
+    aspect-ratio:4 / 3;
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--card-bg);
+  }
+  .project-card-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .5s ease;
+  }
+  .project-card:hover .project-card-media img{ transform:scale(1.05); }
+
+  .project-card-title{
+    display:block;
+    margin-top:18px;
+    font-family:'House of cards W03 Bold', sans-serif;
+    font-size:1.6em;
+  }
+  .project-card-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+    font-family:'Montserrat', sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold-2);
+    transition:gap .2s;
+  }
+  .project-card:hover .project-card-tag{ gap:14px; }
+
+  @media (max-width:700px){
+    .project-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="identidad-visual.html" class="is-active" data-i18n="nav.identidad">Identidad visual</a></li>
+      <li><a href="diseno-web.html" data-i18n="nav.diseno">Diseño web</a></li>
+      <li><a href="comunicacion.html" data-i18n="nav.comunicacion">Comunicación</a></li>
+    </ul>
+
+    <div class="nav-logo">
+      <a href="accueil.html">
+        <img src="images/logo_LR.png" alt="Retour à l'accueil" data-i18n-attr="alt:nav.logoAlt">
+      </a>
+    </div>
+
+    <div class="nav-social">
+      <div class="lang-switch">
+        <button type="button" data-lang="fr" onclick="i18n.setLang('fr')">FR</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="en" onclick="i18n.setLang('en')">EN</button>
+        <span class="sep">/</span>
+        <button type="button" data-lang="es" onclick="i18n.setLang('es')">ES</button>
+      </div>
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <section class="block">
+    <div class="section-title">
+      <span class="st-main gold-text">IDENTIDAD VISUAL</span>
+      <span class="st-sub">Proyectos</span>
+    </div>
+    <div class="title-rule"></div>
+
+    <p class="page-intro" data-i18n="identidad.intro">
+      Logotipos, Identidades visuales y sistemas de marca diseñados para mantener la coherencia
+      en todos los soportes. Haz clic en un proyecto para acceder a su presentación completa.
+    </p>
+
+    <div class="project-grid">
+      <a class="project-card" href="lunaria-timepiece.html">
+        <div class="project-card-media">
+          <img src="images/Lunaria/hero_lunaria.png" alt="Lunaria Timepiece — identité de marque">
+        </div>
+        <span class="project-card-title">Lunaria Timepiece</span>
+        <span class="project-card-tag" data-i18n="identidad.cta">Descubrir el proyecto →</span>
+      </a>
+
+      <a class="project-card" href="sensation-danse.html">
+        <div class="project-card-media">
+          <img src="images/Sensation Danse/sd_hero.png" alt="Sensation Danse — identité de marque">
+        </div>
+        <span class="project-card-title">Sensation Danse</span>
+        <span class="project-card-tag" data-i18n="identidad.cta">Descubrir el proyecto →</span>
+      </a>
+
+      <a class="project-card" href="jardin-hermes.html">
+        <div class="project-card-media">
+          <img src="images/Jardin d'Hermes/JH_hero.png" alt="Jardin d'Hermès — identité de marque">
+        </div>
+        <span class="project-card-title">Jardin d'Hermès</span>
+        <span class="project-card-tag" data-i18n="identidad.cta">Descubrir el proyecto →</span>
+      </a>
+
+      <a class="project-card" href="luxury-home.html">
+        <div class="project-card-media">
+          <img src="images/Luxury Home/LH_hero.png" alt="Luxury Home — identité de marque">
+        </div>
+        <span class="project-card-title">Luxury Home</span>
+        <span class="project-card-tag" data-i18n="identidad.cta">Descubrir el proyecto →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a class="social-icon" href="https://www.linkedin.com/in/ludovic-randrianantoandro/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.86c0-1.64-.03-3.75-2.29-3.75-2.29 0-2.64 1.79-2.64 3.63V23h-4V8z"/></svg>
+      </a>
+      <a class="social-icon" href="+34641520964" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.78 14.09c-.24.68-1.4 1.32-1.92 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09 1-2.38c.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.63.48.24.56.81 1.94.88 2.08.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.89 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+      </a>
+      <a class="social-icon" href="ludovic.randrianantoandro@gmail.com" aria-label="Email" data-i18n-attr="aria-label:social.email">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-7.4 5.55a1 1 0 0 1-1.2 0L4 8.24V18h16z"/></svg>
+      </a>
+    </div>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 Ludovic Randrianantoandro — Tous droits réservés.</p>
+  </footer>
+
+</div>
+
+<script src="scripts/i18n-common.js"></script>
+<script>
+  window.I18N_DICT = Object.assign({}, window.I18N_COMMON, {
+    'identidad.intro': {
+      fr: 'Logos, chartes graphiques et systèmes de marque pensés pour rester cohérents sur tous les supports. Clique sur un projet pour accéder à sa présentation complète.',
+      en: 'Logos, brand guidelines and identity systems designed to stay consistent across every medium. Click on a project to see its full presentation.',
+      es: 'Logotipos, identidades visuales y sistemas de marca diseñados para mantener la coherencia en todos los soportes. Haz clic en un proyecto para acceder a su presentación completa.'
+    },
+    'identidad.cta': { fr: 'Voir le projet →', en: 'See the project →', es: 'Descubrir el proyecto →' }
+  });
+</script>
+<script src="scripts/i18n.js"></script>
+
+</body>
+</html>
